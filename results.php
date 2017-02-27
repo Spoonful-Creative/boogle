@@ -22,7 +22,7 @@ $data = array(
 
 foreach ($data as $term): 
   ?>
-    echo '<a href="<?= $term['url'] ?>"><?= $term['text'] ?></a></br>
+    <a href="<?= $term['url'] ?>"><?= $term['text'] ?></a></br>
 <?php
 endforeach;
 die();
