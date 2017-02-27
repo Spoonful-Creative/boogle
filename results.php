@@ -1,50 +1,40 @@
-<!DOCTYPE html>
-<html lang="en-nz">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Boogle</title>
+<?php
+$searchQuery = $_GET['q'];
 
-  <link rel="stylesheet" type="text/css" href="css/app.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
-  <nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- Collapsed Hamburger -->
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-          <span class="sr-only">Toggle Navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+$data = array(
+  array(
+    'text' => 'Apple',
+    'url' => 'http://apple.com'
+    ),
+  array(
+    'text' => 'Bakers delight',
+    'url' => 'http://bakersdelight.com'
+    ),
+  array(
+    'text' => 'Twitter',
+    'url' => 'http://twitter.com'
+    ),
+  );
+// die(var_dump($data));
+foreach ($data as $term) {
+    echo '<a href="' . $term['url'] . '">' . $term['text'] . '</a></br>';
+}
 
-        <!-- Branding Image -->
-        <a class="navbar-brand" href="index.php">
-         <img width="80px" class="logo-top" src="img/logo.png"/>
-       </a>
-     </div>
+die();
 
-     <div class="collapse navbar-collapse" id="app-navbar-collapse">
-      <!-- Left Side Of Navbar -->
-      <ul class="nav navbar-nav">
-        <li>
-          <div class="field top-bar-search" id="searchform">
-            <input type="text" name="q" autofocus required value="$searchQuery" />
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+
+
+require 'partials/header.php';
+require 'partials/navigation.php';
+?>
+
+ 
 
 <!-- Content -->
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <h4>Search results for <strong>$searchQuery</strong></h4>
+      <h4>Search results for <strong><?php echo $searchQuery; ?></strong></h4>
       <!-- Displayed results -->
       <ul class="list-group">
         <!-- Single Result -->
@@ -97,15 +87,10 @@
     </div>
   </div>
 </div>
-<div class="footer-bottom">
-  <div class="container">
-    <p class="pull-left"> Copyright &copy; Boogle 2017. All rights reserved. </p>
-    <div class="pull-right">
-      <ul class="nav nav-pills">
-        <li><a href="feedback.php">Feedback</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-</body>
-</html>
+
+
+<?php
+
+  require 'partials/footer-bottom.php';
+  require 'partials/footer.php';
+?>
