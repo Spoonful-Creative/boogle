@@ -16,10 +16,15 @@ $data = array(
     ),
   );
 // die(var_dump($data));
-foreach ($data as $term) {
-    echo '<a href="' . $term['url'] . '">' . $term['text'] . '</a></br>';
-}
+// foreach ($data as $term) {
+//     echo '<a href="' . $term['url'] . '">' . $term['text'] . '</a></br>';
+// }
 
+foreach ($data as $term): 
+  ?>
+    echo '<a href="<?= $term['url'] ?>"><?= $term['text'] ?></a></br>
+<?php
+endforeach;
 die();
 
 
