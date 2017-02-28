@@ -6,7 +6,7 @@
   </a>
 </h1>
 
-
+<div style="text-align: center;">
 <form method="POST" action="thanks.php">
 Name: <input type="text" name="name"><br>
 E-mail: <input type="text" name="email"><br>
@@ -15,6 +15,7 @@ Feedback: <br>
 Enter text here...</textarea><br>
 <input type="submit" /> 
 </form>
+</div>
 
 
 <?php include 'partials/footer.php'; ?>
