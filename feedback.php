@@ -6,11 +6,15 @@
   </a>
 </h1>
 
+
 <form method="POST" action="thanks.php">
 Name: <input type="text" name="name"><br>
 E-mail: <input type="text" name="email"><br>
-Feedback: <input type="textarea" name="textarea"><br>
+Feedback: <br>
+<textarea rows="4" cols="50" name="feedback">
+Enter text here...</textarea><br>
 <input type="submit" /> 
 </form>
+
 
 <?php include 'partials/footer.php'; ?>
