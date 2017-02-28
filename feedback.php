@@ -6,6 +6,11 @@
   </a>
 </h1>
 
-<!-- Here is where you'll write your form... -->
+<form method="POST" action="thanks.php">
+Name: <input type="text" name="name"><br>
+E-mail: <input type="text" name="email"><br>
+Feedback: <input type="textarea" name="textarea"><br>
+<input type="submit" /> 
+</form>
 
 <?php include 'partials/footer.php'; ?>
