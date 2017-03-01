@@ -13,6 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["email"])) {
     $errors['email'] = "Email is required";
   }
+  else if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+    $errors['email'] = "Please enter a correct email";
+  }
   if (empty($_POST["feedback"])) {
     $errors['feedback'] = "Feedback is required";
   }
