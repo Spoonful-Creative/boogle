@@ -1,4 +1,6 @@
-<?php include 'partials/header.php'; ?>
+<?php include 'partials/header.php'; 
+
+?>
 
 <h1>
   <a href="index.php">
