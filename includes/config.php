@@ -1,14 +1,11 @@
 <?php
 
+require 'includes/functions.php';
+
 $host = 'localhost';
 $user = 'root';
-$pass = '';
+$pass = 'root';
 $database = 'boogle';
 
 
-//Next we will connect to the database
-try {
-
-} catch (PDOException $e) {
-	
-}
+$dbh = connectDatabase($host, $database, $user, $pass);
