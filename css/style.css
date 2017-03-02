@@ -1,6 +1,12 @@
+html{
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   background-color:#F7F7F9;
   font-family: sans-serif;
+  margin-bottom: 60px;
 }
 
 .logo{
