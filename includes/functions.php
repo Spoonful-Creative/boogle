@@ -33,7 +33,7 @@ function getWebsites($dbh){
 }
 
 function searchWebsites($dbh, $searchQuery){
-	$sth = $dbh->prepare("SELECT * FROM websites");
+	$sth = $dbh->prepare("SELECT * FROM websites WHERE text LIKE '%" . $searchQuery . "%'");
 	$sth->execute();
 	$result = $sth->fetchAll();
 	// die(var_dump($result));

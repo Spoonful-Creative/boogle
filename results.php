@@ -10,11 +10,12 @@ $searchQuery = (!empty($_GET['q'])) ? htmlspecialchars($_GET['q'], ENT_QUOTES, '
 
 //Pullin the large data array
 // $data = require 'includes/data.php';
-$data = searchWebsites($dbh, $searchQuery);
+// $data = searchWebsites($dbh, $searchQuery);
 
 if (!empty($searchQuery)){
   //Here is where the magical function is called and returns the result
-  $terms = filterResults($searchQuery, $data);
+  // $terms = filterResults($searchQuery, $data);
+  $terms = searchWebsites($dbh, $searchQuery);
 }
 
 
