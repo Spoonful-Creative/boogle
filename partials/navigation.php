@@ -1,4 +1,5 @@
- <nav class="navbar navbar-default navbar-static-top">
+  <nav class="navbar navbar-default navbar-static-top">
+
     <div class="container">
       <div class="navbar-header">
         <!-- Collapsed Hamburger -->
@@ -19,6 +20,7 @@
       <!-- Left Side Of Navbar -->
       <ul class="nav navbar-nav">
         <li>
+
         <form action="results.php" method="GET">
           <div class="field top-bar-search" id="searchform">
             <input type="text" name="q" autofocus required value="<?= $searchQuery; ?>" />
@@ -28,4 +30,6 @@
       </ul>
     </div>
   </div>
+
 </nav>
+
