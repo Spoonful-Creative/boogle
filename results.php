@@ -1,20 +1,23 @@
 <?php
-$searchQuery = $_GET['q'];
+//Inculde the config file which will contain database details etc.
+require 'includes/config.php';
 
-$data = require 'includes/data.php';
+//BAD - Please don't us this line
+// $searchQuery = $_GET['q'];
 
-function filterResults($searchQuery, $data) {
-        $matches = [];
- 
-        foreach ($data as $key => $value) {
-          if (strpos(strtolower($value['text']), strtolower($searchQuery)) !== false) {
-            $matches[] = $value;
-          }
-        }
-        return $matches;
-    }
- 
-$terms = filterResults($searchQuery, $data);
+//Save the query submitted to a variable
+$searchQuery = (!empty($_GET['q'])) ? htmlspecialchars($_GET['q'], ENT_QUOTES, 'utf-8') : '';
+
+//Pullin the large data array
+// $data = require 'includes/data.php';
+// $data = searchWebsites($dbh, $searchQuery);
+
+if (!empty($searchQuery)){
+  //Here is where the magical function is called and returns the result
+  // $terms = filterResults($searchQuery, $data);
+  $terms = searchWebsites($dbh, $searchQuery);
+}
+
 
 
 require 'partials/header.php';
@@ -31,12 +34,12 @@ require 'partials/navigation.php';
       <!-- Displayed results -->
       <ul class="list-group">
 
-<?php
+        <?php
         if (empty($terms)):
-        ?>
+          ?>
         <li class="list-group-item notification-bar-fail m-b-1">
- 
- 
+
+
           <div class="notification-bar-details">
             <h3 class="notification-bar-title">
               Nothing was found :(<br>
@@ -48,41 +51,41 @@ require 'partials/navigation.php';
                 <li>Try different keywords.</li>
                 <li>Try more general keywords.</li>
               </ul>
- 
+
             </p>
           </div>
         </li>
 
         <?php
         else:
-        foreach ($terms as $term): 
+          foreach ($terms as $term): 
+            ?>
+
+          <!-- Single Result -->
+          <li class="list-group-item notification-bar-fail m-b-1">
+            <div class="notification-bar-details">
+              <a href="<?= $term['url'] ?>" class="notification-bar-title">
+                <!-- <?= $term['url'] ?>  --><?= $term['text'] ?>
+              </a>
+              <span class="text-muted"><?= $term['url'] ?></span>
+            </div>
+          </li>
+          <!-- End of single result -->
+
+          <?php
+          endforeach;
+          endif;
           ?>
 
-        <!-- Single Result -->
-        <li class="list-group-item notification-bar-fail m-b-1">
-          <div class="notification-bar-details">
-            <a href="<?= $term['url'] ?>" class="notification-bar-title">
-              <!-- <?= $term['url'] ?>  --><?= $term['text'] ?>
-            </a>
-            <span class="text-muted"><?= $term['url'] ?></span>
-          </div>
-        </li>
-        <!-- End of single result -->
 
-        <?php
-        endforeach;
-        endif;
-        ?>
-
-
-      </ul>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 
 
-<?php
+  <?php
 
-require 'partials/footer-bottom.php';
-require 'partials/footer.php';
-?>
+  require 'partials/footer-bottom.php';
+  require 'partials/footer.php';
+  ?>
